@@ -20,9 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Paksa semua URL asset dan routing pakai HTTPS kalau di Render
-        if (config('app.env') !== 'local' || env('APP_ENV') === 'production') {
-            URL::forceScheme('https');
-        }
+        // Paksa SEMUA routing, form action, dan URL asset pakai HTTPS secara absolut
+        URL::forceScheme('https');
     }
 }
